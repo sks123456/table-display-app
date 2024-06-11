@@ -49,7 +49,7 @@ app.use((req, res) => {
   res.status(404).send(`You don't have the right to access to this file`);
 });
 
-const server = app.listen(PORT, () => {
+const server = app.listen(port, () => {
   console.log(`Server started on http://localhost:${PORT}/`);
 });
 
