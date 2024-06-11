@@ -1,0 +1,34 @@
+title: My Jekyll Site
+description: A description of your site
+baseurl: "" # the subpath of your site, e.g., /blog
+url: "https://yourusername.github.io" # the base hostname & protocol for your site
+
+theme: jekyll-theme-primer
+
+# Exclude directories and files
+exclude:
+  - node_modules
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
+  - jekyll-github-metadata
+  - jekyll-coffeescript
+  - jekyll-commonmark-ghpages
+
+github:
+  is_project_page: true
+
+paginate: 5
+paginate_path: "/page:num/"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
