@@ -50,7 +50,7 @@ app.use((req, res) => {
 });
 
 const server = app.listen(port, () => {
-  console.log(`Server started on http://localhost:${PORT}/`);
+  console.log(`Server started on http://localhost:${port}/`);
 });
 
 process.on("SIGTERM", () => {
