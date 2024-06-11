@@ -1,48 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tables Display</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container">
-        <h1 class="mt-5">Table 1</h1>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Index #</th>
-                    <th>Value</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% table1.forEach(row => { %>
-                <tr>
-                    <td><%= row['Index #'] %></td>
-                    <td><%= row.Value %></td>
-                </tr>
-                <% }) %>
-            </tbody>
-        </table>
+<script type="text/javascript">
 
-        <h1 class="mt-5">Table 2</h1>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Category</th>
-                    <th>Value</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% Object.keys(table2).forEach(key => { %>
-                <tr>
-                    <td><%= key %></td>
-                    <td><%= table2[key] %></td>
-                </tr>
-                <% }) %>
-            </tbody>
-        </table>
-    </div>
-</body>
-</html>
+    //the Execute function must follow exactly below 
+    function Execute(func)
+    {
+       prompt( "#", "App.Execute(" + func );
+    }
+    
+    $(document).on("click", "#btnInstantERP", function(){
+      //then u call execute and in the parameter , u put the function name defined at your
+      //js file .
+      Execute("my_main_js_one_of_the_app_function()");
+    });
