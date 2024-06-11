@@ -3,7 +3,7 @@ const fs = require("fs");
 const csv = require("csv-parser");
 const path = require("path"); // Import the path module
 const app = express();
-//const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views")); // Set the views directory
@@ -49,7 +49,7 @@ app.use((req, res) => {
   res.status(404).send(`You don't have the right to access to this file`);
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
  app.listen(PORT);
 
 const server = app.listen(PORT, () => {
