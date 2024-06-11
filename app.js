@@ -24,6 +24,8 @@ fs.createReadStream(path.join(__dirname, "Table_Input.csv"))
 
 // Define the route to render the index template
 app.get("/", (req, res) => {
+  console.log("CSV data:", table1); // Add this line
+
   if (table1.length > 0) {
     const A5 = parseInt(table1.find((row) => row["Index #"] === "A5").Value);
     const A20 = parseInt(table1.find((row) => row["Index #"] === "A20").Value);
@@ -43,7 +45,6 @@ app.get("/", (req, res) => {
     res.send("Loading data, please refresh in a moment.");
   }
 });
-
 
 app.use((req, res) => {
   res.status(404).send(`You don't have the right to access to this file`);
