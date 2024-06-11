@@ -1,13 +1,15 @@
-<script type="text/javascript">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App</title>
+</head>
+<body>
+    <!-- Your HTML content goes here -->
+    <h1>Hello, World!</h1>
 
-    //the Execute function must follow exactly below 
-    function Execute(func)
-    {
-       prompt( "#", "App.Execute(" + func );
-    }
-    
-    $(document).on("click", "#btnInstantERP", function(){
-      //then u call execute and in the parameter , u put the function name defined at your
-      //js file .
-      Execute("my_main_js_one_of_the_app_function()");
-    });
+    <!-- Include your JavaScript file -->
+    <script src="app.js"></script>
+</body>
+</html>
