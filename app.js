@@ -1,14 +1,19 @@
 const express = require('express');
 const fs = require('fs');
 const csv = require('csv-parser');
+const path = require('path'); // Import the path module
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views')); // Set the views directory
+
 app.use(express.static('public'));
 
-const table1 = [];
-fs.createReadStream('Table_Input.csv')
+let table1 = []; // Define table1 as a global variable
+
+// Load CSV file data
+fs.createReadStream(path.join(__dirname, 'Table_Input.csv'))
   .pipe(csv())
   .on('data', (row) => {
     table1.push(row);
@@ -17,6 +22,7 @@ fs.createReadStream('Table_Input.csv')
     console.log('CSV file successfully processed');
   });
 
+// Define the route to render the index template
 app.get('/', (req, res) => {
   if (table1.length > 0) {
     const A5 = parseInt(table1.find(row => row['Index #'] === 'A5').Value);
@@ -32,12 +38,13 @@ app.get('/', (req, res) => {
       'Charlie': A13 * A12
     };
 
-    res.render('index', { table1, table2 });
+    res.render('index', { table1, table2 }); // Render the index template with table1 and table2 data
   } else {
     res.send('Loading data, please refresh in a moment.');
   }
 });
 
+// Start the server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
